@@ -48,40 +48,6 @@ app.post('/api/hospitals', async (req, res) => {
     }
 });
 
-
-app.get('/test-overpass', async (req, res) => {
-    try {
-        console.log("Testing Overpass connection...");
-
-        const response = await fetch(
-            "https://overpass-api.de/api/interpreter",
-            {
-                signal: AbortSignal.timeout(10000)
-            }
-        );
-
-        console.log("Overpass responded:", response.status);
-
-        res.json({
-            success: true,
-            status: response.status,
-            statusText: response.statusText
-        });
-
-    } catch (error) {
-        console.error("OVERPASS TEST ERROR:", error);
-
-        res.status(500).json({
-            success: false,
-            error: error.message,
-            cause: error.cause?.message,
-            code: error.cause?.code
-        });
-    }
-});
-
-
-
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
