@@ -8,6 +8,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/', (req, res)=>{
+    return "hospitals server"
+})
+
 app.post('/api/hospitals', async (req, res) => {
     try {
         const query = req.body?.data;
@@ -17,8 +21,8 @@ app.post('/api/hospitals', async (req, res) => {
             });
         }
         const response = await fetch(
-            // "https://overpass-api.de/api/interpreter",
-            "https://overpass.kumi.systems/api/interpreter",
+            "https://overpass-api.de/api/interpreter",
+            // "https://overpass.kumi.systems/api/interpreter",
             {
                 method: "POST",
                 headers: {
