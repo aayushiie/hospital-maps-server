@@ -17,7 +17,8 @@ app.post('/api/hospitals', async (req, res) => {
             });
         }
         const response = await fetch(
-            "https://overpass-api.de/api/interpreter",
+            // "https://overpass-api.de/api/interpreter",
+            "https://overpass.kumi.systems/api/interpreter",
             {
                 method: "POST",
                 headers: {
